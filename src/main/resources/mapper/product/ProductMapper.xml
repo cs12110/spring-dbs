@@ -1,0 +1,21 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.dbs.mapper.product.ProductMapper">
+
+    <resultMap type="com.spring.dbs.entity.product.ProductInfo" id="baseMap">
+        <id column="id" property="id"/>
+        <result column="product_code" property="productCode"/>
+        <result column="product_name" property="productName"/>
+        <result column="price" property="price"/>
+        <result column="stock" property="stock"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <select id="queryInfo" resultMap="baseMap">
+        select * from t_product_info where product_code = #{productCode}
+    </select>
+
+
+</mapper>

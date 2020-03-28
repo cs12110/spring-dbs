@@ -1,0 +1,20 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.dbs.mapper.order.OrderMapper">
+
+    <resultMap type="com.spring.dbs.entity.order.OrderInfo" id="baseMap">
+        <id column="id" property="id"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="product_code" property="productCode"/>
+        <result column="price" property="price"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <select id="queryByOrderNo" resultMap="baseMap">
+        select * from t_order_info where order_no = #{orderNo}
+    </select>
+
+
+</mapper>
